@@ -6,8 +6,9 @@ description:
 maintainer: ["team@mirage.org"]
 authors: ["Fabrice Buoro <fabrice@tarides.com>"]
 license: "BSD-3"
-homepage: "https://github.com/fabbing/mirage-net-unikraft"
-bug-reports: "https://github.com/fabbing/mirage-net-unikraft/issues"
+tags: ["org:mirage"]
+homepage: "https://github.com/mirage/mirage-net-unikraft"
+bug-reports: "https://github.com/mirage/mirage-net-unikraft/issues"
 depends: [
   "dune" {>= "3.0"}
   "ocaml" {>= "5.2.0"}
@@ -35,4 +36,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/fabbing/mirage-net-unikraft.git"
+dev-repo: "git+https://github.com/mirage/mirage-net-unikraft.git"
