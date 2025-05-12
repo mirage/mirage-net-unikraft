@@ -88,7 +88,7 @@ CAMLprim value uk_netdev_rx(value v_netif, value v_buf, value v_size)
   }
 
   if (rc > 0) {
-    set_netdev_queue_ready(netif->id);
+    /* No-op: there is more to dequeue, keep the ready flag up */
   }
   else {
     set_netdev_queue_empty(netif->id);

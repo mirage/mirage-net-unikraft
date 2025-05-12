@@ -126,7 +126,7 @@ let reset_stats_counters t = Mirage_net.Stats.reset t.stats
 (* Input a frame, and block if nothing is available *)
 let rec read t buf =
   let process () =
-    if not (Unikraft_os.Main.UkEngine.data_on_netdev t.id) then
+    if not (Unikraft_os.Main.Uk_engine.data_on_netdev t.id) then
       Lwt.return (Error `Continue)
     else (
       assert (buf.Cstruct.off = 0);
@@ -140,7 +140,7 @@ let rec read t buf =
   in
   process () >>= function
   | Error `Continue ->
-      Unikraft_os.Main.UkEngine.wait_for_work_netdev t.id >>= fun () ->
+      Unikraft_os.Main.Uk_engine.wait_for_work_netdev t.id >>= fun () ->
       read t buf
   | Error (`Generic_error msg) as err -> Lwt.return err
   | Ok buf -> Lwt.return (Ok buf)
