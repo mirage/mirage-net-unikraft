@@ -161,6 +161,7 @@ let rec listen t ~header_size fn =
         | Error `Disconnected ->
             t.active <- false;
             Error `Disconnected
+        | Error (`Generic_error _) as err -> err
       in
       process () >>= function
       | Ok () -> (listen [@tailcall]) t ~header_size fn
