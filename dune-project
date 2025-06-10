@@ -1,5 +1,7 @@
 (lang dune 3.0)
 
+(name mirage-net-unikraft)
+
 (generate_opam_files)
 
 (source (github mirage/mirage-net-unikraft))
