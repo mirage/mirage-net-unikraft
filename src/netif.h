@@ -8,6 +8,8 @@
  *               All rights reserved.
 */
 
+#ifdef __Unikraft__
+
 #ifndef NETIF_H
 #define NETIF_H
 
@@ -32,3 +34,5 @@ uint16_t netdev_alloc_rxpkts(void *argp, struct uk_netbuf *nb[],
         uint16_t count);
 
 #endif /* !NETIF_H */
+
+#endif /* __Unikraft__ */

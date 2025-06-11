@@ -8,6 +8,8 @@
  *               All rights reserved.
 */
 
+#ifdef __Unikraft__
+
 #include "netif.h"
 
 // Size of the buffer area for uk_netbuf allocation
@@ -46,3 +48,5 @@ struct uk_netbuf *netdev_alloc_tx_netbuf(const struct netif *netif)
   }
   return netbuf;
 }
+
+#endif /* __Unikraft__ */

@@ -8,6 +8,8 @@
  *               All rights reserved.
 */
 
+#ifdef __Unikraft__
+
 #include "netif.h"
 #include "result.h"
 
@@ -104,3 +106,5 @@ CAMLprim value uk_netdev_tx(value v_netif, value v_netbuf, value v_size)
   v_result = alloc_result_ok(Val_unit);
   CAMLreturn(v_result);
 }
+
+#endif /* __Unikraft__ */
