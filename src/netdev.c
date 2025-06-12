@@ -8,6 +8,8 @@
  *               All rights reserved.
 */
 
+#ifdef __Unikraft__
+
 #include "netif.h"
 #include "result.h"
 
@@ -232,3 +234,5 @@ CAMLprim value uk_netdev_mtu(value v_netif)
 
     CAMLreturn(Val_int((int)mtu));
 }
+
+#endif /* __Unikraft__ */

@@ -8,6 +8,8 @@
  *               All rights reserved.
 */
 
+#ifdef __Unikraft__
+
 #include "netif.h"
 #include "result.h"
 
@@ -58,14 +60,12 @@ static int netdev_rx(struct netif* netif, uint8_t *buf, unsigned *size,
 
   const bool more = uk_netdev_status_more(rc);
 
-  if (bufsize < nb->len) {
-    *err = "Not enough room in buffer to write packet";
-    uk_netbuf_free_single(nb);
-    return -1;
-  }
-
-  memcpy(buf, nb->data, nb->len);
-  *size = nb->len;
+  /* If bufsize < nb->len, simply drop the extra trailing bytes, as they cannot
+   * be part of the packet payload or it would exceed MTU; so define len, the
+   * number of bytes to copy, to be the minimum of bufsize and nb->len */
+  const unsigned len = (bufsize < nb->len) ? bufsize : nb->len;
+  memcpy(buf, nb->data, len);
+  *size = len;
   uk_netbuf_free_single(nb);
 
   return (more ? 1 : 0);
@@ -97,3 +97,5 @@ CAMLprim value uk_netdev_rx(value v_netif, value v_buf, value v_size)
   v_result = alloc_result_ok(Val_int(size));
   CAMLreturn(v_result);
 }
+
+#endif /* __Unikraft__ */

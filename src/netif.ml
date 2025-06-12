@@ -142,7 +142,7 @@ let rec read t buf =
   | Error `Continue ->
       Unikraft_os.Main.Uk_engine.wait_for_work_netdev t.id >>= fun () ->
       read t buf
-  | Error (`Generic_error msg) as err -> Lwt.return err
+  | Error (`Generic_error _) as err -> Lwt.return err
   | Ok buf -> Lwt.return (Ok buf)
 
 (* Loop and listen for packets permanently *)
