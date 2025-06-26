@@ -5,7 +5,7 @@
 (generate_opam_files)
 
 (source (github mirage/mirage-net-unikraft))
-(license BSD-3)
+(license BSD-3-Clause)
 (authors "Fabrice Buoro <fabrice@tarides.com>")
 (maintainers "team@mirage.org")
 

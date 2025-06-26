@@ -5,7 +5,7 @@ description:
   "This library implements the MirageOS network interface for Unikraft targets."
 maintainer: ["team@mirage.org"]
 authors: ["Fabrice Buoro <fabrice@tarides.com>"]
-license: "BSD-3"
+license: "BSD-3-Clause"
 tags: ["org:mirage"]
 homepage: "https://github.com/mirage/mirage-net-unikraft"
 bug-reports: "https://github.com/mirage/mirage-net-unikraft/issues"
